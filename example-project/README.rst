@@ -17,6 +17,7 @@ Running The Example
 -------------------
 
 .. code:: python
+
    user@host:~/django-cronkite$ mkvirtualenv cronkite
    user@host:~/django-cronkite$ pip install django
    user@host:~/django-cronkite$ pip install -r requirements.txt
