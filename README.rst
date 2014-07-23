@@ -64,7 +64,7 @@ Job.auto_discover() class method:
        Say good_morning at midnight on Sunday.
        """
        print "Good morning!"
-   truth.schedule = '0 0 * * 0'
+   good_morning.schedule = '0 0 * * 0'
 
 .. code:: python
 
