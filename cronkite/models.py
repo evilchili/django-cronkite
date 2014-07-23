@@ -125,6 +125,7 @@ class Job(models.Model):
 
         # delete all scheduled jobs associated with this module, if any.
         if delete_first:
+            logger.debug("auto_discover: removing existing %s jobs." % module_name)
             cls.objects.filter(name__startswith=module_name).delete()
 
         # step through the names in the module
@@ -140,7 +141,7 @@ class Job(models.Model):
                 continue
 
             # get or create the job with specified schedule.
-            cls.objects.get_or_create(
+            (job, created) = cls.objects.get_or_create(
                 name=name,
                 function='%s.%s' % (module_name, name),
                 defaults={
@@ -148,6 +149,7 @@ class Job(models.Model):
                     'description': obj.__doc__.strip(),
                 }
             )
+            logger.debug("auto_discover: %s %s" % ("created" if created else "updated", job))
 
     class Meta:
         index_together = [['next_run', 'enabled', 'lock']]
