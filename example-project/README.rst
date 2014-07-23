@@ -16,7 +16,7 @@ Tasks are defined in ``project.walter.crontab``.
 Running The Example
 -------------------
 
-.. code:: python
+.. code:: bash
 
    user@host:~/django-cronkite$ mkvirtualenv cronkite
    user@host:~/django-cronkite$ pip install django
