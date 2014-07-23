@@ -16,11 +16,12 @@ Tasks are defined in ``project.walter.crontab``.
 Running The Example
 -------------------
 
-    user@host:~/django-cronkite$ mkvirtualenv cronkite
-    user@host:~/django-cronkite$ pip install django
-    user@host:~/django-cronkite$ pip install -r requirements.txt
-    user@host:~/django-cronkite$ cd example-project
-    user@host:~/django-cronkite$ ./manage.py syncdb
-    user@host:~/django-cronkite$ ./manage.py runserver &
-    user@host:~/django-cronkite$ curl http://localhost:8000/
+.. code:: python
+   user@host:~/django-cronkite$ mkvirtualenv cronkite
+   user@host:~/django-cronkite$ pip install django
+   user@host:~/django-cronkite$ pip install -r requirements.txt
+   user@host:~/django-cronkite$ cd example-project
+   user@host:~/django-cronkite$ ./manage.py syncdb
+   user@host:~/django-cronkite$ ./manage.py runserver &
+   user@host:~/django-cronkite$ curl http://localhost:8000/
 
