@@ -10,10 +10,10 @@ Impetus
 
 I wanted a task runner that:
 
-   - was safe for a high-availability deployments (advisory locking, no master node)
-   - was database-agnostic (do not force your favourite rdbms backend on me, thanks)
-   - had no system-level dependencies (no redis, no custom daemons, no shared filesystems)
-   - used crontab-compatible scheduling
+- was safe for a high-availability deployments (advisory locking, no master node)
+- was database-agnostic (do not force your favourite rdbms backend on me, thanks)
+- had no system-level dependencies (no redis, no custom daemons, no shared filesystems)
+- used crontab-compatible scheduling
 
 ``django-cronkite`` satisfies these goals at the cost of doing away with vast hunks of functionality you might expect 
 in a task runner. In fact about the only thing it *does* do is prevent all your server nodes from running the same 
@@ -67,7 +67,7 @@ Job.auto_discover() class method:
     truth.schedule = '0 0 * * 0'
 
 
-    # urls.py (or wherever):
+    # app/admin.py (or wherever):
     from cronkite.models import Job
     Job.auto_discover('app.crontab')
 
@@ -84,7 +84,7 @@ associated with functions in that module. Changing the above example to:
 Will delete all existing Jobs associated with ``app.crontab`` and recreate them.  You should
 probably only rely on this if you don't want to expose ``django-cronkite`` in the Admin UI.
 
-Examples
---------
+Example
+-------
 
-See the ``examples`` module.
+There is an example django project utilizing ``cronkite`` in the ``example-project`` dir.

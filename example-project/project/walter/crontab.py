@@ -1,6 +1,7 @@
-# examples/crontab.py
+# example-project/project/walter/crontab.py
+#   -- django-cronkite example tasks
 #
-# django-cronkite example tasks, suitable for Job.auto_discover().
+# Note that the the 'schedule' property isn't required unless you're using Job.auto_discover().
 
 
 def send_queued_mail(processes=1):
