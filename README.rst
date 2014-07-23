@@ -37,7 +37,7 @@ By default (ie, with ``CRONKITE_LOCK_TIMEOUT`` unset, or set to ``None``) a lock
 will never be retried.
 
 Add a cron job to your server nodes that runs the ``cron`` management command as often as you like (once every minute is 
-probably a good idea).
+probably a good idea, so you don't limit how often individual jobs can be run).
 
 Usage
 -----
