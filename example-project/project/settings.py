@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Any job that is still locked after five minutes should be unlocked and
+# rerun at its next schedule time.  Note that this implies jobs taking
+# longer to execute than five minutes but are scheduled to run every
+# five minutes or less will end up with concurrent executions.
+CRONKITE_LOCK_TIMEOUT = 300
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
