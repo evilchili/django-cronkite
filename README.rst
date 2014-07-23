@@ -1,8 +1,6 @@
 django-cronkite
 ===============
 
-A lightweight distributed cron replacement for django
-
 ``django-cronkite`` is a simple, lightweight task runner for django.
 
 Impetus
@@ -58,18 +56,21 @@ Job Auto-Discovery
 Instead of using the Admin UI, you can (re)create Job records automatically using the
 Job.auto_discover() class method:
 
-    # app/crontab.py
-    function good_morning():
-        """ 
-        Say good_morning at midnight on Sunday.
-        """
-        print "Good morning!"
-    truth.schedule = '0 0 * * 0'
+.. code:: python
 
+   # app/crontab.py
+   function good_morning():
+       """ 
+       Say good_morning at midnight on Sunday.
+       """
+       print "Good morning!"
+       truth.schedule = '0 0 * * 0'
 
-    # app/admin.py (or wherever):
-    from cronkite.models import Job
-    Job.auto_discover('app.crontab')
+.. code:: python
+
+   # app/admin.py (or wherever):
+   from cronkite.models import Job
+   Job.auto_discover('app.crontab')
 
 This will create a Job that will execute ``app.crontab.good_morning`` at midnight every Sunday; the 
 name of the Job will be ``good_morning``, and the description will be the function's docstring. If 
@@ -79,7 +80,9 @@ Note that calling ``auto_discover()`` will not automatically sync the Job record
 module with the current contents of that module. To do, so you must first delete all Job records 
 associated with functions in that module. Changing the above example to:
 
-    Job.auto_discover('app.crontab', delete_first=True)
+.. code:: python
+
+   Job.auto_discover('app.crontab', delete_first=True)
 
 Will delete all existing Jobs associated with ``app.crontab`` and recreate them.  You should
 probably only rely on this if you don't want to expose ``django-cronkite`` in the Admin UI.
